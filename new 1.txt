@@ -1,0 +1,92 @@
+,,,html,,,
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Social Media Framework</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Welcome to our Social Media Site!</h1>
+        <div class="chat">
+            <h2>Chat</h2>
+            <div id="message-container"></div>
+            <input type="text" id="message-input" placeholder="Type your message...">
+            <button onclick="sendMessage()">Send</button>
+        </div>
+        <div class="task">
+            <h2>Task Assignment</h2>
+            <input type="text" id="task-input" placeholder="Enter a task...">
+            <button onclick="assignTask()">Assign</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
+,,,html,,,
+
+,,,sytle,,,
+@import url('https://fonts.googleapis.com/css2?family=Bree+Serif&family=Caveat:wght@400;700&family=Lobster&family=Monoton&family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display+SC:ital,wght@0,400;0,700;1,700&family=Playfair+Display:ital,wght@0,400;0,700;1,700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&family=Source+Sans+Pro:ital,wght@0,400;0,700;1,700&family=Work+Sans:ital,wght@0,400;0,700;1,700&display=swap');
+
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.chat,
+.task {
+    margin-bottom: 20px;
+}
+
+h1,
+h2 {
+    text-align: center;
+}
+
+#message-container {
+    height: 200px;
+    overflow-y: scroll;
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+
+input[type="text"],
+button {
+    margin-bottom: 10px;
+}
+
+button {
+    display: block;
+}
+,,,sytle,,,
+
+,,,script,,,
+function sendMessage() {
+    var messageInput = document.getElementById("message-input");
+    var messageContainer = document.getElementById("message-container");
+    var message = messageInput.value;
+
+    if (message !== "") {
+        var newMessage = document.createElement("p");
+        newMessage.textContent = message;
+        messageContainer.appendChild(newMessage);
+        messageInput.value = "";
+    }
+}
+
+function assignTask() {
+    var taskInput = document.getElementById("task-input");
+    var task = taskInput.value;
+
+    if (task !== "") {
+        alert("Task assigned: " + task);
+        taskInput.value = "";
+    }
+}
+,,,script,,,
